@@ -1,17 +1,25 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import "../css/variables";
 
 .homepage {
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100vw;
-  background: red;
+  z-index: -1;
+  background: $background-color;
 
   canvas {
-    position: fixed;
     top: 0;
     left: 0;
     outline: none;
+  }
+}
+
+.about {
+  height: 120vh;
+  width: 100vw;
+
+  p{
+      font-size: 25px;
   }
 }
