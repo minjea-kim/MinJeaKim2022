@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Rose from "../components/Rose";
 import SectionTemplate from "../components/SectionTemplate";
 import MenuLinks from "../components/global/MenuLinks";
+import Particles from "../components/Particles";
 import "../css/index.scss";
 
 const IndexPage = () => (
@@ -12,9 +13,10 @@ const IndexPage = () => (
       <Canvas dpr={[1, 2]}>
         <Suspense fallback={null}>
           {/* <pointLight position={[0, 0, 0]} color="white" /> */}
-          <directionalLight position={[0, -0.5, 4.5]} intensity="1.6" />
+          <directionalLight position={[0, -0.5, 4.5]} intensity="1.8" />
           <pointLight position={[0, -3, 0]} intensity="1" color="#142A36" />
-          <Rose position={[0, -0.4, 3.9]} rotation={[-0.4, 0, 0]} />
+          <Rose position={[0, -0.2, 3.9]} rotation={[-0.4, 0, 0]} />
+          {/* <Particles particleCount={300}/> */}
         </Suspense>
       </Canvas>
     </div>

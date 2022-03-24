@@ -6,7 +6,7 @@ const Rose = (props) => {
   const roseRef = useRef();
 
   useFrame(() => {
-    roseRef.current.rotation.y += 0.006;
+    roseRef.current.rotation.y += 0.003;
     // roseRef.current.rotation.z += 0.0008;
   });
 
