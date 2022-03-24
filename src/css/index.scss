@@ -1,6 +1,18 @@
-@import "../css/variables";
+@import "../css/global/variables";
 
 .homepage {
+  padding: 1rem;
+
+  h1{
+    font-size: 1.2rem;
+  }
+
+  p{
+    font-size: 1rem;
+  }
+}
+
+.canvas-wrapper {
   position: fixed;
   top: 0;
   height: 100vh;
@@ -12,14 +24,5 @@
     top: 0;
     left: 0;
     outline: none;
-  }
-}
-
-.about {
-  height: 120vh;
-  width: 100vw;
-
-  p{
-      font-size: 25px;
   }
 }

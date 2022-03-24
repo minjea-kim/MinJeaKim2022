@@ -1,0 +1,33 @@
+@import "variables";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  margin: 0;
+  color: $main-text-color;
+}
+
+.layout section:first-of-type {
+  margin-top: 100vh;
+}
+
+section {
+  border-top: 3px solid red;
+  padding: 20px;
+
+  h1,
+  p {
+    font-size: 25px;
+    color: white;
+  }
+}

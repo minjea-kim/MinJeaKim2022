@@ -1,6 +1,6 @@
 import React from "react";
-import "../css/global.scss";
+import "../css/global/global.scss";
 
 export default function Layout({ children }) {
-  return <div>{children}</div>;
+  return <div className="layout">{children}</div>;
 }
