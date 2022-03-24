@@ -5,11 +5,11 @@ import "../../css/global/menulinks.scss"
 const MenuLinks = (props) => {
   return (
     <div class="menu-links">
-      <Link to="">CASE STUDIES</Link>
-      <Link to="">ARTWORK</Link>
-      <Link to="">MISC. WORK</Link>
-      <Link to="">ABOUT</Link>
-      <Link to="">CONTACT</Link>
+      <a href="">CASE STUDIES</a>
+      <a href="">ARTWORK</a>
+      <a href="">MISC. WORK</a>
+      <a href="">ABOUT</a>
+      <a href="">CONTRACT</a>
     </div>
   );
 };
