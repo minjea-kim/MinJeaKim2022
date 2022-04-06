@@ -9,7 +9,7 @@ const IndexPage = () => (
   <Layout>
     <div className="homepage">
       <ThreeJSCanvas />
-      <div>
+      <div class="intro">
         <h1>MIN JEA KIM</h1>
         <p>Designer and Software Engineer</p>
         <MenuLinks />

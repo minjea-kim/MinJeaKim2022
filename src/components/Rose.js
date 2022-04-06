@@ -6,7 +6,6 @@ const Rose = (props) => {
   const roseRef = useRef();
 
   useFrame(() => {
-
     // roseRef.current.rotation.x += 0.003;
     // roseRef.current.rotation.y += 0.003;
     // roseRef.current.rotation.z += 0.0008;
@@ -16,8 +15,8 @@ const Rose = (props) => {
 
   return (
     <mesh {...props} ref={roseRef} geometry={nodes.rose.geometry}>
-      <meshMatcapMaterial
-        color="white"
+      <meshStandardMaterial
+        color="#141C25"
         roughness="0.611"
         metalness="0.773"
         clearcoat="0"

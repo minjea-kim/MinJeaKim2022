@@ -8,7 +8,8 @@ import MenuLinks from "./global/MenuLinks";
 import Particles from "./Particles";
 import "../css/index.scss";
 import * as THREE from "three";
-import Bouqet from "./Bouquet";
+import Bouquet from "./Bouquet";
+import GroupedPointLight from "./GroupedPointLight";
 
 const CameraController = () => {
   const { camera, gl } = useThree();
@@ -24,21 +25,19 @@ const CameraController = () => {
   return null;
 };
 
+let FLOWER_DISTANCE = 0.3;
+
 const ThreeJSCanvas = (props) => {
   return (
     <div class="canvas-wrapper">
       <Canvas dpr={[1, 2]} frustumCulled={false}>
         <CameraController />
         <Suspense fallback={null}>
-          {/* <pointLight position={[0, 0, 0]} color="white" /> */}
-          <ambientLight intensity={2} />
-          {/* <directionalLight position={[0, -FLOWER_DISTANCE, 4.5]} intensity="1.8" /> */}
-          {/* <pointLight position={[6, 0, 0]} intensity="4" color="white" />
-          <pointLight position={[0, -3, 0]} intensity="1" color="#142A36" />
-          <pointLight position={[0, 0, 5]} intensity="3" color="white" /> */}
-          {/* <Particles particleCount={300}/> */}
-          <Bouqet />
-          <primitive object={new THREE.AxesHelper(10)} />
+          <Bouquet />
+          <GroupedPointLight color="#5ee19c" position={[4, 0, 0]} upwardAccelerationRate={0.004} lightToggleSpeed={0.001}/>
+          <GroupedPointLight color="#008599" position={[-4, -1, 0]} upwardAccelerationRate={0.0013} lightToggleSpeed={0.0014}/>
+          <GroupedPointLight color="#ffd973" position={[0.5, -1.4, 3]} upwardAccelerationRate={0.001} lightToggleSpeed={0.0014}/>
+          {/* <primitive object={new THREE.AxesHelper(10)} /> */}
         </Suspense>
       </Canvas>
     </div>

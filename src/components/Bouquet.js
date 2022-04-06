@@ -2,15 +2,18 @@ import React, { useRef, useState, useEffect, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import Rose from "./Rose";
 
-const Bouqet = (props) => {
+const Bouquet = (props) => {
   const roseRef = useRef(null);
-  const [bouqetPosition, setBouquetPosition] = useState([0, 0, 0]);
-  const [bouqetScale, setBouquetScale] = useState([2.5, 2.5, 2.5]);
+  const [bouquetPosition, setBouquetPosition] = useState([0, 0, 0]);
+  const [bouquetScale, setBouquetScale] = useState([2.5, 2.5, 2.5]);
 
   console.log(roseRef);
 
   useFrame(() => {
-    roseRef.current.rotation.y += 0.003;
+    roseRef.current.rotation.y += 0.0018;
+    if (window.innerWidth < 600) {
+      roseRef.current.rotation.x += -0.000;
+    }
   });
 
   // makeMobileSize();
@@ -22,7 +25,7 @@ const Bouqet = (props) => {
         setBouquetScale([2.8, 2.8, 2.8]);
       } else {
         setBouquetPosition([0, 0, 0]);
-        setBouquetScale([2.5, 2.5, 2.5]);
+        setBouquetScale([2.6, 2.6, 2.6]);
       }
     };
 
@@ -34,7 +37,7 @@ const Bouqet = (props) => {
   let FLOWER_DISTANCE = 0.3;
 
   return (
-    <group scale={bouqetScale} position={bouqetPosition} ref={roseRef}>
+    <group scale={bouquetScale} position={bouquetPosition} ref={roseRef}>
       {/* Top Rose */}
       <Rose
         position={[0, FLOWER_DISTANCE, 0]}
@@ -75,4 +78,4 @@ const Bouqet = (props) => {
   );
 };
 
-export default Bouqet;
+export default Bouquet;
