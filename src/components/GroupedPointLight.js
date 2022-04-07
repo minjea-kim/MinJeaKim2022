@@ -19,7 +19,7 @@ const GroupedPointLight = ({
   useFrame(() => {
     pointLightRef.current.position.y += upwardAccelerationRate;
     incrementLight(lightIncrementer + lightToggleSpeed);
-    setLightIntensity(2 * Math.sin(lightIncrementer));
+    setLightIntensity(4 * Math.sin(lightIncrementer));
     console.log();
   });
 

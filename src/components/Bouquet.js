@@ -25,7 +25,7 @@ const Bouquet = (props) => {
         setBouquetScale([2.8, 2.8, 2.8]);
       } else {
         setBouquetPosition([0, 0, 0]);
-        setBouquetScale([2.6, 2.6, 2.6]);
+        setBouquetScale([2, 2, 2]);
       }
     };
 

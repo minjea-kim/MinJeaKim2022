@@ -11,14 +11,15 @@ const Rose = (props) => {
     // roseRef.current.rotation.z += 0.0008;
   });
 
-  const { nodes } = useGLTF("/images/MJK2022-Rose_Single_v4.glb");
+  const { nodes } = useGLTF("/images/test.glb");
+  console.log(nodes)
 
   return (
     <mesh {...props} ref={roseRef} geometry={nodes.rose.geometry}>
       <meshStandardMaterial
         color="#141C25"
-        roughness="0.611"
-        metalness="0.773"
+        roughness="0.671"
+        metalness="0.7773"
         clearcoat="0"
         clearcoatRoughness="0.3"
         castShadow={false}
