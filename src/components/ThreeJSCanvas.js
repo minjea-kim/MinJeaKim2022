@@ -10,13 +10,6 @@ import "../css/index.scss";
 import * as THREE from "three";
 import Bouquet from "./Bouquet";
 import GroupedPointLight from "./GroupedPointLight";
-import {
-  EffectComposer,
-  DepthOfField,
-  Bloom,
-  Noise,
-  Vignette,
-} from "react-postprocessing";
 
 const CameraController = () => {
   const { camera, gl } = useThree();
@@ -61,17 +54,6 @@ const ThreeJSCanvas = (props) => {
           />
           {/* <primitive object={new THREE.AxesHelper(10)} /> */}
         </Suspense>
-        <EffectComposer>
-          <DepthOfField
-            focusDistance={0}
-            focalLength={0.02}
-            bokehScale={2}
-            height={480}
-          />
-          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
-          <Noise opacity={0.02} />
-          <Vignette eskil={false} offset={0.1} darkness={1.1} />
-        </EffectComposer>
       </Canvas>
     </div>
   );
