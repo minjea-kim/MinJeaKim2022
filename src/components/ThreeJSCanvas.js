@@ -10,6 +10,7 @@ import "../css/index.scss";
 import * as THREE from "three";
 import Bouquet from "./Bouquet";
 import GroupedPointLight from "./GroupedPointLight";
+import Stars from "./Stars";
 
 const CameraController = () => {
   const { camera, gl } = useThree();
@@ -31,6 +32,7 @@ const ThreeJSCanvas = (props) => {
   return (
     <div class="canvas-wrapper">
       <Canvas dpr={[1, 2]} frustumCulled={false}>
+        {/* <Stars/> */}
         <CameraController />
         <Suspense fallback={null}>
           <Bouquet />
