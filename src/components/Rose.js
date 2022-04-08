@@ -12,19 +12,11 @@ const Rose = (props) => {
   });
 
   const { nodes } = useGLTF("/images/test.glb");
-  console.log(nodes)
+  console.log(nodes);
 
   return (
     <mesh {...props} ref={roseRef} geometry={nodes.rose.geometry}>
-      <meshStandardMaterial
-        color="#141C25"
-        roughness="0.741"
-        metalness="0.7773"
-        clearcoat="0"
-        clearcoatRoughness="0.3"
-        castShadow={false}
-        receiveShadow={false}
-      />
+      <meshStandardMaterial color="hotpink" roughness={1} />
     </mesh>
   );
 };
