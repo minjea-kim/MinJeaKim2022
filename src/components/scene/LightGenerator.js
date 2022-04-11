@@ -22,7 +22,7 @@ export const generateLights = () => {
     let randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     let lightUpwardAcceleration = Math.random(0.2) / 1000;
-    let lightIntensityMultiplier = 1.5;
+    let lightIntensityMultiplier = 2;
     // let lightUpwardAcceleration = 0;
     let sphereLight = (
       <SphereLight
