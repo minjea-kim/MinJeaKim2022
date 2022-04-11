@@ -59,7 +59,7 @@
   height: 100vh;
   width: 100vw;
   // Change to -1 to prevent controls
-  z-index: 2;
+  z-index: -1;
   background: red;
 
   canvas {

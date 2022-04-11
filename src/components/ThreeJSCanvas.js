@@ -10,7 +10,6 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import SphereLight from "../components/SphereLight";
 import PointSphereLight from "../components/PointSphereLight";
 import * as constants from "../constants/scene";
-import { Sphere } from "@react-three/drei";
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
@@ -66,9 +65,10 @@ function Main({ children }) {
 
 let pointSphereLights = [];
 let sphereLights = [];
+let colors = ["#FC466B", "#3F5EFB", "#e4c25e"];
 let DISTANCE_FROM_FLOWER = 1;
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   var plusOrMinus_1 = Math.random() < 0.5 ? -1 : 1;
   var plusOrMinus_2 = Math.random() < 0.5 ? -1 : 1;
   var plusOrMinus_3 = Math.random() < 0.5 ? -1 : 1;
@@ -77,16 +77,18 @@ for (let i = 0; i < 5; i++) {
   let yPos = plusOrMinus_2 * (3 * Math.random(0.1) + DISTANCE_FROM_FLOWER);
   let zPos = plusOrMinus_3 * (3 * Math.random(0.1) + DISTANCE_FROM_FLOWER);
   let initialLightIncrementValue = Math.random(0.1);
+  let randomColor = colors[Math.floor(Math.random() * colors.length)];
 
   let lightUpwardAcceleration = Math.random(0.2) / 1000;
+  let lightIntensityMultiplier = 1;
   // let lightUpwardAcceleration = 0;
   let sphereLight = (
     <SphereLight
       position={[xPos, yPos, zPos]}
       scale={[0.2, 0.2, 0.2]}
-      color="#ff00ff"
+      color={randomColor}
       lightIncrementAdder={0.005}
-      lightIntensityMultiplier={2}
+      lightIntensityMultiplier={lightIntensityMultiplier}
       initialLightIncrementValue={initialLightIncrementValue}
       upwardAccelerationRate={lightUpwardAcceleration}
     />
@@ -94,10 +96,10 @@ for (let i = 0; i < 5; i++) {
   let pointSphereLight = (
     <PointSphereLight
       position={[xPos, yPos, zPos]}
+      color={randomColor}
       lightIncrementAdder={0.005}
-      lightIntensityMultiplier={2}
+      lightIntensityMultiplier={lightIntensityMultiplier}
       initialLightIncrementValue={initialLightIncrementValue}
-      color="#ff00ff"
       upwardAccelerationRate={lightUpwardAcceleration}
     />
   );
@@ -115,14 +117,12 @@ const ThreeJSCanvas = (props) => {
         <CameraController />
         <Suspense fallback={null}>
           <Main>
-            <primitive object={new THREE.AxesHelper(10)} />
+            {/* <primitive object={new THREE.AxesHelper(10)} /> */}
             <Bouquet />
             {pointSphereLights}
           </Main>
         </Suspense>
-        <Bloom>
-          {sphereLights}
-        </Bloom>
+        <Bloom>{sphereLights}</Bloom>
       </Canvas>
     </div>
   );
