@@ -60,7 +60,7 @@
   width: 100vw;
   // Change to -1 to prevent controls
   z-index: -1;
-  background: red;
+  background: $background-color;
 
   canvas {
     top: 0;

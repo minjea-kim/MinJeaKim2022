@@ -1,18 +1,10 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useThree } from "react-three-fiber";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const Rose = (props) => {
   const roseRef = useRef();
 
-  useFrame(() => {
-    // roseRef.current.rotation.x += 0.003;
-    // roseRef.current.rotation.y += 0.003;
-    // roseRef.current.rotation.z += 0.0008;
-  });
-
   const { nodes } = useGLTF("/images/test.glb");
-  // console.log(nodes);
 
   return (
     <mesh {...props} ref={roseRef} geometry={nodes.rose.geometry}>

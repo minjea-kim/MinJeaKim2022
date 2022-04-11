@@ -1,7 +1,5 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useThree } from "react-three-fiber";
-import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useRef, useState } from "react";
+import { useFrame } from "react-three-fiber";
 
 const SphereLight = ({
   color,

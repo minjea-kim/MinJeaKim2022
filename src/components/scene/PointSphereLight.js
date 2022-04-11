@@ -1,7 +1,6 @@
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import * as THREE from "three";
-import { nextPowerOfTwo } from "three/src/math/MathUtils";
 
 const PointSphereLight = ({
   color,
