@@ -17,7 +17,7 @@ const IndexPage = () => (
     </div>
     <SectionTemplate />
     <SectionTemplate />
-    <SectionTemplate />
+    {/* <SectionTemplate /> */}
   </Layout>
 );
 

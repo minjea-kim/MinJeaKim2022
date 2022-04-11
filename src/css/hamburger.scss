@@ -1,0 +1,52 @@
+@import "./global/variables";
+
+.mobile-menu {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100vh;
+  height: 100vh;
+  background: $background-color;
+  z-index: 99;
+  animation: fadeIn 0.2s;
+}
+
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 100;
+
+  div {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 5px;
+    background: white;
+    margin-left: auto;
+  }
+
+  #first {
+    width: 100%;
+  }
+
+  #second {
+    width: 85%;
+  }
+
+  #third {
+    width: 70%;
+  }
+
+  #fourth {
+    width: 55%;
+  }
+
+  #fifth {
+    width: 40%;
+  }
+}

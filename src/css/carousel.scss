@@ -1,11 +1,61 @@
 .carousel {
-  .middle-slide {
+  margin-bottom: 20vh;
+
+  .container {
+    width: 100%;
     height: 50vh;
-    width: 80%;
-    background: gray;
-    margin: auto;
-    -webkit-box-shadow: 0px 8px 15px 5px #1a5b54;
-    box-shadow: 0px 8px 15px 5px #1a5b54;
-    border: 1px solid #147886;
+    position: relative;
+    overflow: hidden;
+
+    .middle-slide,
+    .prior-slide,
+    .next-slide {
+      width: 86%;
+      background: gray;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+
+    .middle-slide {
+      margin: auto;
+      -webkit-box-shadow: 0px 8px 15px 5px #1a5b54;
+      box-shadow: 0px 8px 15px 5px #1a5b54;
+      border: 1px solid #147886;
+      z-index: 5;
+      left: 0;
+      right: 0;
+      //   opacity: 0;
+    }
+
+    .prior-slide,
+    .next-slide {
+      height: 80%;
+      margin: auto 0;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .prior-slide {
+      left: -82%;
+    }
+
+    .next-slide {
+      right: -82%;
+    }
+
+    div {
+      div {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }
