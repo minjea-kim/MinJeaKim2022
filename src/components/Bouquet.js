@@ -21,8 +21,8 @@ const Bouquet = (props) => {
   useEffect(() => {
     const resizeFlowers = () => {
       if (window.innerWidth < 600) {
-        setBouquetPosition([0, -1.6, 0]);
-        setBouquetScale([2.8, 2.8, 2.8]);
+        setBouquetPosition([0, -1, 0]);
+        setBouquetScale([2, 2, 2]);
       } else {
         setBouquetPosition([0, 0, 0]);
         setBouquetScale([2, 2, 2]);

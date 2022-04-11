@@ -8,22 +8,31 @@ const SphereLight = ({
   position,
   scale,
   upwardAccelerationRate,
-  lightToggleSpeed,
-  lightIntensityMultiplier,
+  lightIncrementAdder,
+  initialLightIncrementValue,
 }) => {
   const sphereLight = useRef();
-  const xPos = position[0];
-  const yPos = position[1];
-  const zPos = position[2];
+
+  const [lightIncrementer, incrementLight] = useState(
+    initialLightIncrementValue
+  );
+  const [lightIntensity, setLightIntensity] = useState(1);
 
   useFrame(() => {
-    sphereLight.current.position.y += 0.01;
+    sphereLight.current.position.y += upwardAccelerationRate;
+    incrementLight(lightIncrementer + lightIncrementAdder);
+    setLightIntensity(Math.abs(Math.sin(lightIncrementer)));
   });
 
   return (
-    <mesh position={[xPos, yPos, zPos]} scale={scale} ref={sphereLight}>
+    <mesh position={position} scale={scale} ref={sphereLight} opacity={0}>
       <sphereBufferGeometry attach="geometry" />
-      <meshBasicMaterial color={color} attach="material" />
+      <meshBasicMaterial
+        color={color}
+        attach="material"
+        transparent={true}
+        opacity={lightIntensity}
+      />
     </mesh>
   );
 };

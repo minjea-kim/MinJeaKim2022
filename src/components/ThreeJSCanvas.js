@@ -1,19 +1,16 @@
 import React, { useRef, useState, useEffect, useMemo, Suspense } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
-import Layout from "./Layout";
-import Rose from "./Rose";
-import SectionCanvas from "./SectionTemplate";
-import MenuLinks from "./global/MenuLinks";
-import Particles from "./Particles";
 import "../css/index.scss";
 import * as THREE from "three";
 import Bouquet from "./Bouquet";
-import GroupedPointLight from "./GroupedPointLight";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 import SphereLight from "../components/SphereLight";
+import PointSphereLight from "../components/PointSphereLight";
+import * as constants from "../constants/scene";
+import { Sphere } from "@react-three/drei";
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
@@ -31,6 +28,7 @@ const CameraController = () => {
   return null;
 };
 
+console.log("CONSTANTS: ", constants);
 let FLOWER_DISTANCE = 0.3;
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
@@ -66,6 +64,50 @@ function Main({ children }) {
   return <scene ref={scene}>{children}</scene>;
 }
 
+let pointSphereLights = [];
+let sphereLights = [];
+let DISTANCE_FROM_FLOWER = 1;
+
+for (let i = 0; i < 5; i++) {
+  var plusOrMinus_1 = Math.random() < 0.5 ? -1 : 1;
+  var plusOrMinus_2 = Math.random() < 0.5 ? -1 : 1;
+  var plusOrMinus_3 = Math.random() < 0.5 ? -1 : 1;
+
+  let xPos = plusOrMinus_1 * (3 * Math.random(0.1) + DISTANCE_FROM_FLOWER);
+  let yPos = plusOrMinus_2 * (3 * Math.random(0.1) + DISTANCE_FROM_FLOWER);
+  let zPos = plusOrMinus_3 * (3 * Math.random(0.1) + DISTANCE_FROM_FLOWER);
+  let initialLightIncrementValue = Math.random(0.1);
+
+  let lightUpwardAcceleration = Math.random(0.2) / 1000;
+  // let lightUpwardAcceleration = 0;
+  let sphereLight = (
+    <SphereLight
+      position={[xPos, yPos, zPos]}
+      scale={[0.2, 0.2, 0.2]}
+      color="#ff00ff"
+      lightIncrementAdder={0.005}
+      lightIntensityMultiplier={2}
+      initialLightIncrementValue={initialLightIncrementValue}
+      upwardAccelerationRate={lightUpwardAcceleration}
+    />
+  );
+  let pointSphereLight = (
+    <PointSphereLight
+      position={[xPos, yPos, zPos]}
+      lightIncrementAdder={0.005}
+      lightIntensityMultiplier={2}
+      initialLightIncrementValue={initialLightIncrementValue}
+      color="#ff00ff"
+      upwardAccelerationRate={lightUpwardAcceleration}
+    />
+  );
+
+  sphereLights.push(sphereLight);
+  pointSphereLights.push(pointSphereLight);
+}
+console.log(pointSphereLights);
+console.log(sphereLights);
+
 const ThreeJSCanvas = (props) => {
   return (
     <div class="canvas-wrapper">
@@ -75,30 +117,11 @@ const ThreeJSCanvas = (props) => {
           <Main>
             <primitive object={new THREE.AxesHelper(10)} />
             <Bouquet />
-            <pointLight />
-            {/* <ambientLight /> */}
+            {pointSphereLights}
           </Main>
         </Suspense>
         <Bloom>
-          <ambientLight />
-          <SphereLight
-            position={[4, -4, 0]}
-            scale={[0.3, 0.3, 0.3]}
-            color="#ff00ff"
-            upwardAccelerationRate={0.002}
-          />
-          <SphereLight
-            position={[-4, -1, 0]}
-            scale={[0.2, 0.2, 0.2]}
-            color="#ff00ff"
-            upwardAccelerationRate={0.0008}
-          />
-          <SphereLight
-            position={[0, 0, 0]}
-            scale={[0.25, 0.25, 0.25]}
-            color="#ff00ff"
-            upwardAccelerationRate={0.007}
-          />
+          {sphereLights}
         </Bloom>
       </Canvas>
     </div>
