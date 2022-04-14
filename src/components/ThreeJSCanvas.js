@@ -21,10 +21,10 @@ import "../css/index.scss";
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
-const { sphereLights, pointSphereLights } = generateLights();
-
 const ThreeJSCanvas = (props) => {
   const [cameraZoom, setCameraZoom] = useState(50);
+
+  const { sphereLights, pointSphereLights } = generateLights();
 
   const backgroundLights = generateBackgroundLights();
 

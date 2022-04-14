@@ -23,7 +23,7 @@ const Bouquet = (props) => {
         let mobileScale = 2.2;
         setBouquetPosition([0, -1, 0]);
         setBouquetScale([mobileScale, mobileScale, mobileScale]);
-        setBouquetRotation([Math.PI / 14, Math.PI, 0]);
+        setBouquetRotation([Math.PI * 1.97, Math.PI * 1.3, 0]);
       } else {
         setBouquetPosition([0, 0, 0]);
         setBouquetScale([2.2, 2.2, 2.2]);
