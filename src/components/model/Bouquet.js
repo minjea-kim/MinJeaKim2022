@@ -21,7 +21,7 @@ const Bouquet = (props) => {
     const resizeFlowers = () => {
       if (window.innerWidth < 600) {
         let mobileScale = 2.2;
-        setBouquetPosition([0, -1, 0]);
+        setBouquetPosition([0, -0.5, 0]);
         setBouquetScale([mobileScale, mobileScale, mobileScale]);
         setBouquetRotation([Math.PI * 1.97, Math.PI * 1.3, 0]);
       } else {

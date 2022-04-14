@@ -23,16 +23,24 @@ extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
 const ThreeJSCanvas = (props) => {
   const [cameraZoom, setCameraZoom] = useState(50);
-
-  const { sphereLights, pointSphereLights } = generateLights();
+  const [sphereLights, setSphereLights] = useState(null);
+  const [pointSphereLights, setPointSphereLights] = useState(null);
 
   const backgroundLights = generateBackgroundLights();
 
   useEffect(() => {
+    document.addEventListener("scroll", (_) => console.log("SCROLLING"));
+
     if (window.innerWidth < 600) {
-      setCameraZoom(65);
+      setCameraZoom(70);
+      let lights = generateLights(true);
+      setSphereLights(lights.sphereLights);
+      setPointSphereLights(lights.pointSphereLights);
     } else {
       setCameraZoom(200);
+      let lights = generateLights(false);
+      setSphereLights(lights.sphereLights);
+      setPointSphereLights(lights.pointSphereLights);
     }
   }, []);
 

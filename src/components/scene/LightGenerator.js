@@ -5,7 +5,7 @@ import SphereLight from "./SphereLight";
 let colors = ["#4c1bee", "#43ccf9", "#fa7ab8"];
 let DISTANCE_FROM_FLOWER = 1;
 
-export const generateLights = () => {
+export const generateLights = (isMobile) => {
   let pointSphereLights = [];
   let sphereLights = [];
   let NUMBER_OF_LIGHTS = 10;
@@ -30,7 +30,7 @@ export const generateLights = () => {
 
     let lightIntensityMultiplier;
 
-    if (window.innerWidth < 600) {
+    if (isMobile) {
       lightIntensityMultiplier = 1;
     } else {
       lightIntensityMultiplier = 0.5;
