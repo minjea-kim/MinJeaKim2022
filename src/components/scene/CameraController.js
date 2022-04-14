@@ -7,8 +7,12 @@ const CameraController = () => {
   useEffect(() => {
     const controls = new OrbitControls(camera, gl.domElement);
 
-    controls.minDistance = 3;
-    controls.maxDistance = 20;
+    if (window.innerWidth < 600) {
+      controls.enableZoom = true;
+    } else {
+      controls.enableZoom = false;
+    }
+
     return () => {
       controls.dispose();
     };

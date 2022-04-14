@@ -10,7 +10,7 @@ const Rose = (props) => {
     <mesh {...props} ref={roseRef} geometry={nodes.rose.geometry}>
       <meshStandardMaterial
         color="#141C25"
-        roughness="0.281"
+        roughness="0.421"
         metalness="0.8773"
         clearcoat="0"
         clearcoatRoughness="0.3"

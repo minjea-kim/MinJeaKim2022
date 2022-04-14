@@ -20,13 +20,14 @@ const Bouquet = (props) => {
   useEffect(() => {
     const resizeFlowers = () => {
       if (window.innerWidth < 600) {
+        let mobileScale = 2.2;
         setBouquetPosition([0, -1, 0]);
-        setBouquetScale([2, 2, 2]);
-        setBouquetRotation([-Math.PI / 12, 0.25, 0]);
+        setBouquetScale([mobileScale, mobileScale, mobileScale]);
+        setBouquetRotation([Math.PI / 14, Math.PI, 0]);
       } else {
         setBouquetPosition([0, 0, 0]);
-        setBouquetScale([2, 2, 2]);
-        setBouquetRotation([0, 0, 0]);
+        setBouquetScale([2.2, 2.2, 2.2]);
+        setBouquetRotation([-Math.PI / 24, 0, 0]);
       }
     };
 

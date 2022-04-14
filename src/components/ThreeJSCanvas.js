@@ -23,12 +23,30 @@ extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
 const { sphereLights, pointSphereLights } = generateLights();
 
-const backgroundLights = generateBackgroundLights();
-
 const ThreeJSCanvas = (props) => {
+  const [cameraZoom, setCameraZoom] = useState(50);
+
+  const backgroundLights = generateBackgroundLights();
+
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setCameraZoom(65);
+    } else {
+      setCameraZoom(200);
+    }
+  }, []);
+
   return (
     <div class="canvas-wrapper">
-      <Canvas dpr={[1, 2]} frustumCulled={false}>
+      <Canvas
+        orthographic
+        camera={{
+          zoom: cameraZoom,
+          position: [0, 0, 50],
+        }}
+        dpr={[1, 2]}
+        frustumCulled={false}
+      >
         <CameraController />
         <Suspense fallback={null}>
           <MainCanvas>
