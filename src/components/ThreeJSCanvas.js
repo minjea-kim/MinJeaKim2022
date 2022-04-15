@@ -12,7 +12,7 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 import RevolvingPointLights from "./scene/lights/RevolvingPointLights";
-import BackgroundLights from "./scene/lights/BackgroundLights";
+import BackgroundOrbs from "./scene/lights/BackgroundOrbs";
 
 // Misc.
 import "../css/index.scss";
@@ -50,7 +50,7 @@ const ThreeJSCanvas = (props) => {
           </MainCanvas>
         </Suspense>
         <BloomPass>
-          <BackgroundLights />
+          <BackgroundOrbs />
         </BloomPass>
       </Canvas>
     </div>

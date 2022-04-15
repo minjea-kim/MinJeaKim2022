@@ -10,7 +10,7 @@ const lightsData = [
     rotationSpeed: 0,
     color: "#4C1BEE",
     lightIncrementAdder: 0.005,
-    lightIntensityMultiplier: 0,
+    lightIntensityMultiplier: 1,
     initialLightIncrementValue: Math.random(0.1),
     upwardAccelerationRate: 0,
   },
@@ -20,7 +20,7 @@ const lightsData = [
     rotationSpeed: 0,
     color: "#43CCF9",
     lightIncrementAdder: 0.005,
-    lightIntensityMultiplier: 0,
+    lightIntensityMultiplier: 1,
     initialLightIncrementValue: Math.random(0.1),
     upwardAccelerationRate: 0,
   },
@@ -30,7 +30,7 @@ const lightsData = [
     rotationSpeed: 0,
     color: "#FA7AB8",
     lightIncrementAdder: 0.005,
-    lightIntensityMultiplier: 0,
+    lightIntensityMultiplier: 1,
     upwardAccelerationRate: 0,
     initialLightIncrementValue: Math.random(0.1),
   },
@@ -40,7 +40,7 @@ const lightsData = [
     rotationSpeed: 0,
     color: "#FA7AB8",
     lightIncrementAdder: 0.005,
-    lightIntensityMultiplier: 0,
+    lightIntensityMultiplier: 1,
     upwardAccelerationRate: 0,
     initialLightIncrementValue: Math.random(0.1),
   },
@@ -53,13 +53,6 @@ const RevolvingPointLights = () => {
     let pointSphereLights = [];
 
     for (const lightData of lightsData) {
-      // if (isMobile) {
-      //   lightData.lightIntensityMultiplier = 1;
-      // } else {
-      //   lightData.lightIntensityMultiplier = 2;
-      // }
-
-      lightData.lightIntensityMultiplier = 1;
 
       let pointSphereLight = (
         <Revolver>
