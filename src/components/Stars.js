@@ -1,6 +1,5 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useThree } from "react-three-fiber";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef, useState } from "react";
+import { useFrame } from "react-three-fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 

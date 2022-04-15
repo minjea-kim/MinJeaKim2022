@@ -14,11 +14,15 @@ const PointSphereLight = ({
     initialLightIncrementValue
   );
   const [lightIntensity, setLightIntensity] = useState(1);
+
   const pointLightRef = useRef();
 
   useFrame(() => {
     pointLightRef.current.position.y += upwardAccelerationRate;
+
     incrementLight(lightIncrementer + lightIncrementAdder);
+
+    // Function responsible from fading in and out
     setLightIntensity(
       Math.abs(lightIntensityMultiplier * Math.sin(lightIncrementer))
     );
@@ -28,7 +32,7 @@ const PointSphereLight = ({
 
   return (
     <group ref={pointLightRef} position={position}>
-      {/* <primitive object={new THREE.PointLightHelper(pointLight, 1)} /> */}
+      <primitive object={new THREE.PointLightHelper(pointLight, 1)} />
       <primitive object={pointLight} />
     </group>
   );
