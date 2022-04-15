@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import MenuLinks from "./global/MenuLinks";
 import "../css/hamburger.scss";
 
 const Hamburger = (props) => {
@@ -11,9 +12,21 @@ const Hamburger = (props) => {
   };
 
   return (
-    <div>
-      {toggled ? <div class="mobile-menu"></div> : <div></div>}
-      <div className="hamburger" onClick={toggleMenuState}>
+    <div class="hamburger toggled">
+      {toggled ? (
+        <div class="mobile-menu">
+          <div class="menu-links" id="test">
+            <a href="">CASE STUDIES</a>
+            <a href="">ARTWORK</a>
+            <a href="">MISC. WORK</a>
+            <a href="">ABOUT</a>
+            <a href="">CONTACT</a>
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      <div className="hamburger nontoggled" onClick={toggleMenuState}>
         <div id="first"></div>
         <div id="second"></div>
         <div id="third"></div>

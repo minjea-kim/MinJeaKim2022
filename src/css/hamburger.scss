@@ -11,11 +11,16 @@
   animation: fadeIn 0.2s;
 }
 
-.hamburger {
+#test{
+  height: 100%;
+  // background-color: orange !important;
+}
+
+.hamburger .nontoggled {
   position: fixed;
-  top: 10px;
-  right: 0;
-  width: 45px;
+  top: 1rem;
+  right: 1rem;
+  width: 35px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -30,23 +35,23 @@
     margin-left: auto;
   }
 
-  #first {
-    width: 100%;
-  }
+  // #first {
+  //   width: 100%;
+  // }
 
-  #second {
-    width: 85%;
-  }
+  // #second {
+  //   width: 85%;
+  // }
 
-  #third {
-    width: 70%;
-  }
+  // #third {
+  //   width: 70%;
+  // }
 
-  #fourth {
-    width: 55%;
-  }
+  // #fourth {
+  //   width: 55%;
+  // }
 
-  #fifth {
-    width: 40%;
-  }
+  // #fifth {
+  //   width: 40%;
+  // }
 }

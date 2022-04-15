@@ -29,8 +29,6 @@ const ThreeJSCanvas = (props) => {
   const backgroundLights = generateBackgroundLights();
 
   useEffect(() => {
-    document.addEventListener("scroll", (_) => console.log("SCROLLING"));
-
     if (window.innerWidth < 600) {
       setCameraZoom(70);
       let lights = generateLights(true);
